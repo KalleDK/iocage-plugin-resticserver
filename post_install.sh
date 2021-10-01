@@ -1,12 +1,11 @@
 #!/bin/sh
 
 HOSTNAME=$(hostname)
-
-env > /var/db/restserver/en
+DOMAINNAME=$(domainname)
 
 # Create certificates
 mkdir -p /usr/local/etc/restserver
-openssl req -nodes -x509 -newkey rsa:4096 -keyout /usr/local/etc/restserver/server.key -out /usr/local/etc/restserver/server.crt -days 365 -subj "/CN=${HOSTNAME}"
+openssl req -nodes -x509 -newkey rsa:4096 -keyout /usr/local/etc/restserver/server.key -out /usr/local/etc/restserver/server.crt -days 365 -subj "/CN=${HOSTNAME}.${DOMAINNAME}"
 chown root:restserver /usr/local/etc/restserver/server.crt /usr/local/etc/restserver/server.key
 chmod o=wr,g=r,o= /usr/local/etc/restserver/server.crt /usr/local/etc/restserver/server.key
 
