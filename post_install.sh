@@ -2,6 +2,8 @@
 
 HOSTNAME=$(hostname)
 
+env > /var/db/restserver/en
+
 # Create certificates
 mkdir -p /usr/local/etc/restserver
 openssl req -nodes -x509 -newkey rsa:4096 -keyout /usr/local/etc/restserver/server.key -out /usr/local/etc/restserver/server.crt -days 365 -subj "/CN=${HOSTNAME}"
