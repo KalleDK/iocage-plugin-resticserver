@@ -9,6 +9,10 @@ openssl req -nodes -x509 -newkey rsa:4096 -keyout /usr/local/etc/restserver/serv
 chown root:restserver /usr/local/etc/restserver/server.crt /usr/local/etc/restserver/server.key
 chmod o=wr,g=r,o= /usr/local/etc/restserver/server.crt /usr/local/etc/restserver/server.key
 
+# Install htpasswd
+fetch --no-verify-peer https://github.com/KalleDK/go-htpasswd/releases/download/v0.0.3/htpasswd-freebsd-amd64.tar -o - | tar xf - -C /usr/local/bin/
+chmod o=rx,g=rw,o=rx /usr/local/bin/htpasswd
+
 # Create htpasswd file
 touch /var/db/restserver/.htpasswd
 chown root:restserver /var/db/restserver/.htpasswd
