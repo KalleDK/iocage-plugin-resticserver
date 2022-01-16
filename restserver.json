@@ -1,6 +1,6 @@
 {
   "name": "restserver",
-  "release": "12.2-RELEASE",
+  "release": "12.3-RELEASE",
   "artifact": "https://github.com/KalleDK/iocage-plugin-resticserver.git",
   "properties": {
 	"allow_raw_sockets":"1",
