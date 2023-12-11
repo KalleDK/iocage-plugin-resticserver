@@ -35,7 +35,7 @@ chmod o=rx,g=rw,o=rx /usr/local/sbin/lego.sh
 fetch https://raw.githubusercontent.com/KalleDK/iocage-plugin-resticserver/main/lego-deploy.sh -o /usr/local/sbin/lego-deploy.sh
 chmod o=rx,g=rw,o=rx /usr/local/sbin/lego-deploy.sh
 
-fetch https://raw.githubusercontent.com/KalleDK/iocage-plugin-resticserver/main/lego.conf -o /usr/local/etc/lego.conf
+fetch https://raw.githubusercontent.com/KalleDK/iocage-plugin-resticserver/main/lego.conf -o /usr/local/etc/lego/lego.conf
 
 sysrc -f /etc/periodic.conf weekly_lego_enable=YES
 sysrc -f /etc/periodic.conf weekly_lego_renewscript=/usr/local/sbin/lego.sh

@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-BASEDIR=/usr/local/etc
+BASEDIR=/usr/local/etc/lego
 CONFIGFILE=${BASEDIR}/lego.conf
 
 if [ -r "${CONFIGFILE}" ]
