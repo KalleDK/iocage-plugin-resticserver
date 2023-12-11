@@ -29,4 +29,14 @@ sysrc restserver_options="--listen :8000 --tls --tls-cert /usr/local/etc/restser
 service restserver start
 
 # Add Lego Cron
+fetch https://raw.githubusercontent.com/KalleDK/iocage-plugin-resticserver/main/lego.sh -o /usr/local/sbin/lego.sh
+chmod o=rx,g=rw,o=rx /usr/local/sbin/lego.sh
 
+fetch https://raw.githubusercontent.com/KalleDK/iocage-plugin-resticserver/main/lego-deploy.sh -o /usr/local/sbin/lego-deploy.sh
+chmod o=rx,g=rw,o=rx /usr/local/sbin/lego-deploy.sh
+
+fetch https://raw.githubusercontent.com/KalleDK/iocage-plugin-resticserver/main/lego.conf -o /usr/local/etc/lego.conf
+
+sysrc -f /etc/periodic.conf weekly_lego_enable=YES
+sysrc -f /etc/periodic.conf weekly_lego_renewscript=/usr/local/sbin/lego.sh
+sysrc -f /etc/periodic.conf weekly_lego_deployscript=/usr/local/sbin/lego-deploy.sh
