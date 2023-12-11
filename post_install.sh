@@ -29,6 +29,9 @@ sysrc restserver_options="--listen :8000 --tls --tls-cert /usr/local/etc/restser
 service restserver start
 
 # Add Lego Cron
+mkdir -p /var/db/lego
+chown _lego:_lego /var/db/lego
+
 fetch https://raw.githubusercontent.com/KalleDK/iocage-plugin-resticserver/main/lego.sh -o /usr/local/sbin/lego.sh
 chmod o=rx,g=rw,o=rx /usr/local/sbin/lego.sh
 
