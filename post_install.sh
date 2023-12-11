@@ -27,3 +27,6 @@ sysrc restserver_options="--listen :8000 --tls --tls-cert /usr/local/etc/restser
 
 # Start the service
 service restserver start
+
+# Add Lego Cron
+
