@@ -22,8 +22,8 @@ copy_certs () {
 
   if ! cmp -s "${certfile}" "${RESTSERVER_CRT}"
   then
-    cp "${certfile}" "${RESTSERVER_CRT}"
-    cp "${keyfile}" "${RESTSERVER_KEY}"
+    install -o root -g restserver -m 640 "${certfile}" "${RESTSERVER_CRT}"
+    install -o root -g restserver -m 640 "${keyfile}" "${RESTSERVER_KEY}"
     rc=0
   fi
   
