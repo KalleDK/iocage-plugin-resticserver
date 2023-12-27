@@ -1,7 +1,7 @@
 #!/bin/sh -e
 
 BASEDIR=/usr/local/etc/lego
-CONFIGFILE=${BASEDIR}/lego.conf
+CONFIGFILE=${BASEDIR}/lego.env
 
 if [ -r "${CONFIGFILE}" ]
 then
